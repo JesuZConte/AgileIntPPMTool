@@ -31,8 +31,8 @@ public class ProjectController {
         ResponseEntity<Map<String, String>> errorMap = mapValidationError.getErrorsMap(result);
         if (errorMap != null) return errorMap;
 
-        projectService.saveOrUpdateProject(project);
-        return new ResponseEntity<>(project, HttpStatus.CREATED);
+        Project saveOrUpdateProject = projectService.saveOrUpdateProject(project);
+        return new ResponseEntity<>(saveOrUpdateProject, HttpStatus.CREATED);
     }
 
     @GetMapping("/{projectId}")
